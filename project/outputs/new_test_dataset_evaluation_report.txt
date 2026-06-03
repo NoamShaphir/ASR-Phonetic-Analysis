@@ -1,0 +1,61 @@
+========================================================================
+     NEW TEST DATASET EVALUATION REPORT: BASELINE VS. LORA-ADAPTED      
+========================================================================
+
+Global Word Count: 372 words
+Global Baseline WER: 22.31% (83/372 errors)
+Global Adapted WER:  23.39% (87/372 errors)
+Global Relative WER Reduction: -4.8%
+
+========================================================================
+                     SENTENCE-BY-SENTENCE DETAIL                        
+========================================================================
+
+--- Sentence 1 ---
+Audio Path: C:\Users\Noam\OneDrive\Desktop\Noam\year_3\voice\project\data\drive-download-20260601T081932Z-3-001\sentence_1_ready.wav
+Ground Truth:  I've seen many pictures of the Grand Canyon in the US of course and I've always imagined something like this. I've never been there but this feels very much like those pictures but there I heard that it's very touristy and here I'm alone walking in this very long canyon and the inspector is driving up there he will meet me at
+Baseline Pred: I'VE SEEN MANY PICTURES OF THE GRAND CANON IN THE OUSS OF COURSE AND I'VE ALWAYS IMAGINED IT SOMETHING LIKE THIS I'VE NEVER BEEN THERE BUT THIS FEELS VERY MUCH LIKE THOSE PICTURES BUT THERE I HEARD THAT IT'S VERY TERISTIC AND HERE I'M ALONE WALKING IN THIS VERY LONG CANYON AND A THE INSPECTOR IS DRIVING UP THERE HE WILL MEET ME AT
+Adapted Pred:  I HAVE SEEN MANY PICTURES OF THE GRAND CANYON IN THE EWESS OF COURSE AND I HVE ALWAYS IMAGINED SOMETHING LIKE THIS I HAVE NEVER BEEN THERE BUT THESE FEELS VERY MUCH LIKE THOSE PICTURES BUT THERE I HEARD THAT IT'S VERYTERISTIC AND HERE IAM ALONE TALKING IN THIS VERY LONG CANYON AND THE INSPECTOR IS DRIVING UP THERE HE WILL MEET ME AT
+Baseline WER:  7.46% (5/67 errors)
+Adapted WER:   10.45% (7/67 errors)
+Relative WER Reduction: -40.0%
+
+--- Sentence 3 ---
+Audio Path: C:\Users\Noam\OneDrive\Desktop\Noam\year_3\voice\project\data\drive-download-20260601T081932Z-3-001\sentence_3_ready.wav
+Ground Truth:  Hello, very beautiful community. Trump has written a letter to the Prime Minister of Norway that is so unhinged that it's making front-page news and is indeed a public embarrassment for the United States. We're going to read it line by line because you can't do it justice without reading it line by line because virtually every single line is unhinged on a par with an extremely petulant
+Baseline Pred: HE HAD A VERY BEAUTIFUL COMMUNITY TRUMP HAS WRITTEN A LETTER TO THE PRIME MINISTER OF NORWAY THAT IS SO UNHINGED THAT IT'S MAKING FRONT PAGE NEWS AND IS INDEED A PUBLIC EMBARRASSMENT FOR THE UNITED STATES WE CAN READ IT LINE BY LINE BECAUSE YOU CAN'T DO JUSTICE WITHOUT REATEN IT LINE BY LINE BECAUSE VIRTUALLY EVERY SINGLE LINE IS UNHINGED ON A PAR WITH AN EXTREMELY PETULAN
+Adapted Pred:  HE HAD A VERY BEAUTIFUL COMMUNITY TRUMP HAS WRITTEN A LETTER TO THE PRIME MINISTER OF NORWAY THAT IS SO UNHINGED THAT IT'S MAKING FRONT PAGE NEWS AND IS INDEED A PUBLIC EMBARRASSMENT FOR THE UNITED STATES WE CAN READ IT LINE BY LINE BECAUSE YOU CAN'T DO JUSTICE WITHOUT READENIT LINE BY LINE BECAUSE VIRTUALLY EVERY SINGLE LINE IS UNHINGED ON A PA WITH AN EXTREMELY PETUAL
+Baseline WER:  12.50% (9/72 errors)
+Adapted WER:   15.28% (11/72 errors)
+Relative WER Reduction: -22.2%
+
+--- Sentence 4 ---
+Audio Path: C:\Users\Noam\OneDrive\Desktop\Noam\year_3\voice\project\data\drive-download-20260601T081932Z-3-001\sentence_4_ready.wav
+Ground Truth:  It gives a lot of confidence when you play. Because the thing is, many players know that they need to improve things, they need to do those things, but when you go on match, and you have a peak moment, of course you're going to use the weapons that you've been using always, and you know that they're working. And the toughest thing is like, okay, try to...
+Baseline Pred: IT GIVES A LOT OF CONFIDENCE WHEN YOU PLAY BECAUSE THE THING IS MANUPLEERS MOTED THEY YE TO IMPROVE THINGS THEY YOU TO DO THOSE THINGS BUT WHEN YOU GO ON MUCH AND YOU HAVE PICK MOMENT OF COURSE YOU GO NO USE THE WEAPONS THAT YOU'VE BEEN USING ALWAYS AND YOU KNOW THAT THEY'RE WORKING AND THE STAPAS THINK IS LIKE OK TRY TO
+Adapted Pred:  IT GIVES A LOT OF CONFIDENCE WHEN YOU PLAY BECAUSE THE THING IS MANY PLEASE MOW THAT THEY NEED TO IMPROVE THINGS THEY NEED TO DO THOSE THINGS BUT WHEN YOU GO ON MUCH AND YOU HAVE PICK MOMENT OF COURSE YOU GO NO USE THE WEAPONS THAT YOU'VE BEEN USING ALWAYS AND YOU KNOW THAT THEYR WORKING AND THE STAFFES THINK IS LIKE O KA TRY TO
+Baseline WER:  21.43% (15/70 errors)
+Adapted WER:   20.00% (14/70 errors)
+Relative WER Reduction: 6.7%
+
+--- Sentence 5 ---
+Audio Path: C:\Users\Noam\OneDrive\Desktop\Noam\year_3\voice\project\data\drive-download-20260601T081932Z-3-001\sentence_5_ready.wav
+Ground Truth:  it was successful, of course winning stulgar, it's nice, but we all know that it's indoor and it's very specific, I would say, the conditions. Yeah, it's just pitty because I think I was practicing well before French Open and I was feeling also good on the practices and I thought that I can raise the level, but actually today was very bad performance, too many enforce errors and yeah, I didn't feel the greatest, I was trying to find a way, but it's clearly didn't work.
+Baseline Pred: SUCCESSFUL OF COURSE WENNING STULGER IT'S IS NICE BUT A WE ALL KNOW THAT IT'S INDOOR AND IT'S  VERY SPECIFIC I WOULD SAY THE CONDITIONS A YET JUST E PITY BECAUSE I THINK I WAS A PRACTISING WELL BEFORE A FRENCH OPEN AND I WAS FEELING WA SO GOOD ON ON THE PRACTISES AND I THOUGHT THAT I CAN RAISE THE LEVEL BUT ACTUALLY TO THER WAS VERY BAD PERFORMANCE TO MANY AN FOR SIRS AND TEI DIDN'T FEEL THE GREATEST I WAS TRYING TO FIND AWAY BUT IT'S CLEREDIN WOR
+Adapted Pred:  SUCCESSFUL OF COURSE WINNING STILGER H SNICES BUTWE ALL KNOW THAT ITS INDOOR IT  VERY SPECIFIC I WOULD SAY THE CONDITIONS YE JUST PITY BECAUSE I THINK I WAS PRACTISING WELL BEFORE FRENCH OPEN AND I WAS FEELING ALSO GOOD ON THE PRACTISES N THOUGHT THAT I CAN RAISE THE LEVEL BUT ACTUALLY TO DHEY WAS VERY BAD PERFORMANCE TO MANYAN FOR SERS ANDIDIDN FEEL THE GREATEST I WAS TRYING TO FIND A WAY BUT THESE CLARIDIN WOR
+Baseline WER:  34.04% (32/94 errors)
+Adapted WER:   39.36% (37/94 errors)
+Relative WER Reduction: -15.6%
+
+--- Sentence 6 ---
+Audio Path: C:\Users\Noam\OneDrive\Desktop\Noam\year_3\voice\project\data\drive-download-20260601T081932Z-3-001\sentence_6_ready.wav
+Ground Truth:  Obviously coming into this match, I knew that there were a lot of talks about it, that it will be tough for both, that she's a defending champion, what I can say she's so good. But yeah, I just tried to stay away from everything and just focus on myself, on the preparation, on the tactics, and yeah, just on myself, and not to let anyone to...
+Baseline Pred: OBVIOUSLY COMING INTO THIS MARCH I I KNEW THAT THERE WERE A LOT OF TOKS ABURRID THAT IT WILL BE TA FORBOF THAT E YES SHE SIR DEFENDING CHAMPIONA WHAT I CAN SAY SHE IS SIR SO GOOD BUT YERE I JUST TRIED TO STAY AWAY FROM EVERYTHING AND JUST TO FOCUS ON MYSELF ON THE PREPARATION ON THE TACIKS AND E YE JUST ON MYSELF AND E NOT TO LET ANY ONE TO
+Adapted Pred:  OBVIOUSLY COMING INTO THIS MATCH I I KNEW THAT THERE WERE A LOT OF TOLLOCS ABURRIED THAT IT WILL BE TA FOR BOTH THATYES SHES  THEFENDING CHAMPION WHAT I CAN SAY SHE IS SO GOOD BUT YE I JUST TRIE TO STAY AWAY FROM EVERYTHING AND JUSTO FOCAS ON MYSELF ON THE PREPARATION ON THE TACTICS ANDYE HAD JUST ON MYSELF AND NOT TOLET ANYONE TO
+Baseline WER:  31.88% (22/69 errors)
+Adapted WER:   26.09% (18/69 errors)
+Relative WER Reduction: 18.2%
+
+========================================================================
+Report compiled successfully!
+========================================================================

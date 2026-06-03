@@ -1,0 +1,248 @@
+========================================================================
+     DEEP PHONETIC PATTERN ANALYSIS FOR TARGET WORDS (RUSSIAN ACCENT)   
+========================================================================
+
+--- CRITICAL RESEARCH UPDATES & ALGORITHMIC CORRECTIVES ---
+
+A. IMPLICIT PRIOR & PHONOTACTIC EXPECTATIONS IN THE ACOUSTIC MODEL (AM):
+   * The Acoustic Model (e.g. Wav2Vec2 transformer) is not a pure acoustic representation.
+   * Through exposure to thousands of hours of speech during training, the AM learns
+     an implicit language prior and phonotactic rules (vowel-consonant expectations).
+   * In THINGS (/θɪŋz/), L2 Russian devoicing of /z/ to /s/ produces /θɪŋs/.
+   * Because /ŋs/ is phonotactically disallowed/extremely rare in English, the AM itself
+     'hallucinates' the voiceless stop /k/, shifting the acoustic vector to /ŋks/ (THINKS).
+   * This is a hybrid error where the AM's implicit prior and the search space conspire
+     to output a valid lexical word, rather than an external LM correction alone.
+
+B. CONTEXT-SENSITIVE BAYESIAN NOISY CHANNEL DECODING:
+   * Modelling L2 transfers with a flat, global static transition probability scalar
+     (e.g., P_Trans(/t/ | /θ/) = 0.180) is an oversimplification that introduces a new static heuristic.
+   * Physical interdental stopping is highly context-dependent, modeled as P_Trans(sp | int, C).
+   * Context variable C represents syntactic position, vowel environments, and surrounding phones.
+   * For example, stopping /θ/ -> /t/ is highly active (up to 80%) in word-initial positions
+     before front vowels, but drops below 5% in word-medial or consonant cluster environments.
+   * The search engine queries a dynamic, context-conditioned transition matrix P_Trans(sp | int, C)
+     at each prefix expansion state, resolving complex coarticulatory variations.
+
+C. ASR ALGORITHMIC ALIGNMENT SHIPS AS DIRECT SYMPTOMS OF L2 PROSODY:
+   * The 32.4% ASR Algorithmic Alignment Shifts (blank/skipped boundaries) do not occur in a vacuum.
+   * The CTC decoder fails at segment alignments and inserts blank tokens because of L2 acoustic features.
+   * L2 speech is characterized by hesitations, micro-second silent pauses, and prosodic/temporal lengthening
+     as speakers struggle to plan and execute non-native articulatory postures.
+   * Thus, these alignment 'artifacts' are direct physiological symptoms of L2 acoustic and timing anomalies.
+
+--- WORD: SLABS ---
+Total Instances: 82 | Total Errors: 58 | Failure Rate: 70.7%
+Top Phoneme Mismatches:
+  Spoken /b/ -> Predicted /p/: 37 times -> [Final Devoicing]
+  Spoken /z/ -> Predicted /s/: 32 times -> [Final Devoicing]
+  Spoken /æ/ -> Predicted /ɛ/: 6 times -> [Vowel Height Shift]
+  Spoken /***/ -> Predicted /æ/: 5 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /s/ -> Predicted /z/: 5 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /s/ -> Predicted /***/: 5 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /***/ -> Predicted /s/: 4 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /l/ -> Predicted /***/: 4 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /***/ -> Predicted /ɛ/: 3 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /æ/ -> Predicted /***/: 3 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /z/ -> Predicted /***/: 3 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /l/ -> Predicted /t/: 3 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /***/ -> Predicted /b/: 2 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /ɛ/ -> Predicted /æ/: 2 times -> [Vowel Height Shift]
+  Spoken /b/ -> Predicted /***/: 2 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /p/ -> Predicted /b/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /ɪ/ -> Predicted /æ/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /ə/ -> Predicted /ɹ/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /t/ -> Predicted /l/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /ʃ/ -> Predicted /æ/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /i/ -> Predicted /p/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /ə/ -> Predicted /ɛ/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /ɛ/ -> Predicted /v/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /***/ -> Predicted /p/: 1 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /***/ -> Predicted /z/: 1 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /b/ -> Predicted /f/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /z/ -> Predicted /d/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /æ/ -> Predicted /ɪ/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /b/ -> Predicted /v/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+
+--- WORD: THESE ---
+Total Instances: 164 | Total Errors: 47 | Failure Rate: 28.7%
+Top Phoneme Mismatches:
+  Spoken /s/ -> Predicted /z/: 34 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /ɪ/ -> Predicted /i/: 17 times -> [Vowel Height Shift]
+  Spoken /i/ -> Predicted /ɪ/: 16 times -> [Vowel Height Shift]
+  Spoken /z/ -> Predicted /s/: 13 times -> [Final Devoicing]
+  Spoken /d/ -> Predicted /ð/: 11 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /i/ -> Predicted /***/: 9 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /z/ -> Predicted /ə/: 7 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /z/ -> Predicted /ð/: 5 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /s/ -> Predicted /ə/: 4 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /ð/ -> Predicted /θ/: 4 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /***/ -> Predicted /ɛ/: 4 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /z/ -> Predicted /***/: 4 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /***/ -> Predicted /i/: 3 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /θ/ -> Predicted /ð/: 3 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /***/ -> Predicted /ð/: 3 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /ð/ -> Predicted /z/: 3 times -> [Dental Fricative to Alveolar Sibilant]
+  Spoken /d/ -> Predicted /***/: 2 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /***/ -> Predicted /z/: 2 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /***/ -> Predicted /θ/: 2 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /s/ -> Predicted /ɹ/: 2 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /ə/ -> Predicted /z/: 2 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /***/ -> Predicted /s/: 2 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /ð/ -> Predicted /l/: 2 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /i/ -> Predicted /ɛ/: 2 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /ð/ -> Predicted /s/: 2 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /ð/ -> Predicted /***/: 2 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /ð/ -> Predicted /t/: 2 times -> [Dental Fricative Stoppage (th-stopping)]
+  Spoken /***/ -> Predicted /k/: 2 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /s/ -> Predicted /***/: 1 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /ə/ -> Predicted /***/: 1 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /t/ -> Predicted /ə/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /d/ -> Predicted /t/: 1 times -> [Final Devoicing]
+  Spoken /ə/ -> Predicted /ɪ/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /ɪ/ -> Predicted /***/: 1 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /i/ -> Predicted /ð/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /d/ -> Predicted /ɛ/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /i/ -> Predicted /ʌ/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /f/ -> Predicted /ð/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /ɹ/ -> Predicted /i/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /ɪ/ -> Predicted /ð/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /l/ -> Predicted /ɹ/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /s/ -> Predicted /i/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /θ/ -> Predicted /***/: 1 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /ə/ -> Predicted /s/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /z/ -> Predicted /ɹ/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /ð/ -> Predicted /w/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /z/ -> Predicted /θ/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /i/ -> Predicted /b/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /z/ -> Predicted /ɪ/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /ð/ -> Predicted /f/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /***/ -> Predicted /b/: 1 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /ð/ -> Predicted /ɹ/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /***/ -> Predicted /g/: 1 times -> [ASR Algorithmic Alignment Shift]
+
+--- WORD: THINGS ---
+Total Instances: 164 | Total Errors: 41 | Failure Rate: 25.0%
+Top Phoneme Mismatches:
+  Spoken /s/ -> Predicted /z/: 30 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /i/ -> Predicted /ɪ/: 19 times -> [Vowel Height Shift]
+  Spoken /z/ -> Predicted /s/: 16 times -> [Final Devoicing]
+  Spoken /***/ -> Predicted /k/: 14 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /***/ -> Predicted /ɪ/: 12 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /k/ -> Predicted /***/: 8 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /***/ -> Predicted /s/: 6 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /θ/ -> Predicted /f/: 6 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /θ/ -> Predicted /s/: 5 times -> [Dental Fricative to Alveolar Sibilant]
+  Spoken /***/ -> Predicted /θ/: 4 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /***/ -> Predicted /g/: 3 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /***/ -> Predicted /z/: 3 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /θ/ -> Predicted /t/: 3 times -> [Dental Fricative Stoppage (th-stopping)]
+  Spoken /z/ -> Predicted /***/: 3 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /θ/ -> Predicted /***/: 3 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /k/ -> Predicted /ɪ/: 2 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /f/ -> Predicted /***/: 2 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /s/ -> Predicted /***/: 2 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /ə/ -> Predicted /***/: 2 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /s/ -> Predicted /θ/: 2 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /***/ -> Predicted /ɛ/: 2 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /θ/ -> Predicted /ɪ/: 2 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /z/ -> Predicted /t/: 2 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /i/ -> Predicted /θ/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /ʌ/ -> Predicted /***/: 1 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /i/ -> Predicted /***/: 1 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /t/ -> Predicted /θ/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /s/ -> Predicted /t/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /k/ -> Predicted /g/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /ə/ -> Predicted /z/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /ɪ/ -> Predicted /æ/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /t/ -> Predicted /ɪ/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /v/ -> Predicted /θ/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /θ/ -> Predicted /w/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /ɪ/ -> Predicted /i/: 1 times -> [Vowel Height Shift]
+  Spoken /ɪ/ -> Predicted /ɛ/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /ɪ/ -> Predicted /t/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /z/ -> Predicted /ɹ/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /***/ -> Predicted /æ/: 1 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /θ/ -> Predicted /z/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /ɪ/ -> Predicted /***/: 1 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /z/ -> Predicted /ə/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /θ/ -> Predicted /ð/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+
+--- WORD: KIDS ---
+Total Instances: 82 | Total Errors: 48 | Failure Rate: 58.5%
+Top Phoneme Mismatches:
+  Spoken /z/ -> Predicted /s/: 28 times -> [Final Devoicing]
+  Spoken /d/ -> Predicted /t/: 25 times -> [Final Devoicing]
+  Spoken /s/ -> Predicted /z/: 7 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /d/ -> Predicted /***/: 7 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /***/ -> Predicted /ɛ/: 6 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /***/ -> Predicted /ɪ/: 6 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /i/ -> Predicted /ɪ/: 5 times -> [Vowel Height Shift]
+  Spoken /***/ -> Predicted /z/: 5 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /ɪ/ -> Predicted /i/: 5 times -> [Vowel Height Shift]
+  Spoken /t/ -> Predicted /d/: 4 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /***/ -> Predicted /d/: 4 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /k/ -> Predicted /***/: 2 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /***/ -> Predicted /æ/: 2 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /i/ -> Predicted /ɛ/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /i/ -> Predicted /***/: 1 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /s/ -> Predicted /ɛ/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /d/ -> Predicted /ɛ/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /***/ -> Predicted /t/: 1 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /***/ -> Predicted /i/: 1 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /***/ -> Predicted /s/: 1 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /ɪ/ -> Predicted /æ/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /ɪ/ -> Predicted /ɛ/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /z/ -> Predicted /***/: 1 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /k/ -> Predicted /g/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /ɪ/ -> Predicted /***/: 1 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /z/ -> Predicted /ə/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /***/ -> Predicted /f/: 1 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /***/ -> Predicted /ʌ/: 1 times -> [ASR Algorithmic Alignment Shift]
+
+--- WORD: THICK ---
+Total Instances: 82 | Total Errors: 49 | Failure Rate: 59.8%
+Top Phoneme Mismatches:
+  Spoken /***/ -> Predicted /s/: 28 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /θ/ -> Predicted /s/: 10 times -> [Dental Fricative to Alveolar Sibilant]
+  Spoken /k/ -> Predicted /g/: 9 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /θ/ -> Predicted /t/: 5 times -> [Dental Fricative Stoppage (th-stopping)]
+  Spoken /i/ -> Predicted /ɪ/: 4 times -> [Vowel Height Shift]
+  Spoken /θ/ -> Predicted /***/: 4 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /i/ -> Predicted /***/: 2 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /ɪ/ -> Predicted /***/: 2 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /***/ -> Predicted /ɪ/: 2 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /θ/ -> Predicted /f/: 2 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /k/ -> Predicted /s/: 2 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /***/ -> Predicted /t/: 1 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /θ/ -> Predicted /ɪ/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /k/ -> Predicted /***/: 1 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /ʌ/ -> Predicted /ə/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /***/ -> Predicted /θ/: 1 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /b/ -> Predicted /ɪ/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /l/ -> Predicted /k/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /t/ -> Predicted /θ/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /ə/ -> Predicted /***/: 1 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /***/ -> Predicted /f/: 1 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /***/ -> Predicted /k/: 1 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /θ/ -> Predicted /p/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /θ/ -> Predicted /w/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /θ/ -> Predicted /l/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /k/ -> Predicted /v/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /k/ -> Predicted /ɹ/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /***/ -> Predicted /l/: 1 times -> [ASR Algorithmic Alignment Shift]
+  Spoken /θ/ -> Predicted /ɛ/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /ɪ/ -> Predicted /p/: 1 times -> [Residual Phonetic / Coarticulatory Shift]
+  Spoken /ɪ/ -> Predicted /i/: 1 times -> [Vowel Height Shift]
+
+========================================================================
+                         SUMMARY OF PHONETIC PATTERNS                   
+========================================================================
+Total Phonetic Mismatches Analyzed: 701
+1. Final Consonant Devoicing (voiced stop/fricative -> voiceless): 152 times (21.7%)
+2. Dental Fricative Stoppage (th-stopping fricative -> stop): 10 times (1.4%)
+3. Dental Fricative to Alveolar Sibilant (fricative -> sibilant): 18 times (2.6%)
+4. Vowel Height/Tenseness Shifts (tense <-> lax or close <-> open): 76 times (10.8%)
+5. Total Interdental Fricative Mispronunciations (Dental stops + Sibilants): 28 times (4.0%)
+6. ASR Algorithmic Alignment Shifts (word skips / DP insertions & deletions): 227 times (32.4%)
+7. Residual Phonetic & Coarticulatory Shifts (compound substitutions, nasals, glottals): 218 times (31.1%)

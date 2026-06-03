@@ -1,0 +1,54 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Python virtual environments
+.venv/
+venv/
+ENV/
+env/
+project/data/.venv/
+
+# OS-specific temporary files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Heavy Model Engines & Saved Weights (Local Offline Wav2Vec2 & Adapter)
+wav2vec2-base-local/
+project/wav2vec2-base-local/
+*.pt
+*.bin
+*.h5
+*.ckpt
+project/wav2vec2-lora-russian-adapter.pt
+
+# Large dataset archives
+*.zip
+*.tar.gz
+*.tgz
+*.rar
+ASI.zip
+dev-clean-2.tar.gz
+
+# Raw Audio Datasets (Excluding code and reports)
+*.mp3
+*.wav
+project/data/accent_dataset/
+project/data/drive-download-20260601T081932Z-3-001/
+
+# Temporary / Scratch logs
+project/scratch/temp_*.md
+project/scratch/walkthrough_*.md
+
+# Root-level temp and database directories
+/scratch/
+/ASI/
