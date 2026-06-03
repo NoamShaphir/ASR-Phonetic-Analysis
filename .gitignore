@@ -45,10 +45,6 @@ dev-clean-2.tar.gz
 project/data/accent_dataset/
 project/data/drive-download-20260601T081932Z-3-001/
 
-# Temporary / Scratch logs
-project/scratch/temp_*.md
-project/scratch/walkthrough_*.md
-
 # Root-level temp and database directories
 /scratch/
 /ASI/

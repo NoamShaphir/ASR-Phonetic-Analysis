@@ -47,12 +47,6 @@ project/
 ├── evaluate_new_data.py                    # Runs evaluation on unseen test dataset using baseline vs. LoRA adapter
 ├── analyze_duration.py                    # Performs robust, IQR-cleaned vowel duration analysis
 ├── compare_manual_vs_model_ipa.py          # Aligns manual IPA from researchers with model G2P predicted IPA
-│
-# Helper Scripts
-└── scratch/
-    ├── compile_docx.py                     # Compiles MD files to custom Word document styling
-    ├── calculate_ipa_mismatch_rate.py     # Computes manual vs model G2P mismatch rates (russian10 vs global)
-    └── evaluate_catastrophic_forgetting.py # Runs validation checks on Native English speakers after adaptation
 ```
 
 ---
